@@ -6,9 +6,9 @@
 #define TOUCH_GT911_RST 38
 #define TOUCH_GT911_ROTATION ROTATION_NORMAL
 #define TOUCH_MAP_X1 786
-#define TOUCH_MAP_X2 335
+#define TOUCH_MAP_X2 0
 #define TOUCH_MAP_Y1 471
-#define TOUCH_MAP_Y2 215
+#define TOUCH_MAP_Y2 0
 
 int touch_last_x = 0, touch_last_y = 0;
 
@@ -38,16 +38,16 @@ bool touch_touched()
     touch_last_x = map(ts.points[0].x, TOUCH_MAP_X1, TOUCH_MAP_X2, 0, 800 - 1);
     touch_last_y = map(ts.points[0].y, TOUCH_MAP_Y1, TOUCH_MAP_Y2, 0, 480 - 1);
 
-    // Serial.print("  x: ");
-    // Serial.print(ts.points[0].x);
-    // Serial.print("  y: ");
-    // Serial.print(ts.points[0].y);
-    // Serial.print(' ');
-    // Serial.print("  x: ");
-    // Serial.print(touch_last_x);
-    // Serial.print("  y: ");
-    // Serial.print(touch_last_y);
-    // Serial.println(' ');
+    Serial.print("  x: ");
+    Serial.print(ts.points[0].x);
+    Serial.print("  y: ");
+    Serial.print(ts.points[0].y);
+    Serial.print(' ');
+    Serial.print("  x: ");
+    Serial.print(touch_last_x);
+    Serial.print("  y: ");
+    Serial.print(touch_last_y);
+    Serial.println(' ');
 
     ts.isTouched = false;
     return true;
